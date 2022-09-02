@@ -8,7 +8,7 @@ class DataAccessLayer:
     yandex = Table("yandex", metadata,
         Column("id", Integer(), primary_key=True),
         Column("yandex_key",String(12),index=True,unique=True),
-        Column("yandex_download_url",String(283),unique=True),
+        Column("yandex_download_url",String(2083),unique=True),
         Column("created",DateTime(),default=datetime.now),
         Column("updated",DateTime(),default=datetime.now,onupdate=datetime.now)
     )
