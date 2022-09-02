@@ -1,4 +1,4 @@
-from sqlalchemy import MetaData, Column, create_engine, Table, Integer,String,DateTime
+from sqlalchemy import MetaData, Column, create_engine, Table, Integer,String,DateTime,Text
 from datetime import datetime
 class DataAccessLayer:
     engine = None
@@ -8,7 +8,7 @@ class DataAccessLayer:
     yandex = Table("yandex", metadata,
         Column("id", Integer(), primary_key=True),
         Column("yandex_key",String(20),index=True,unique=True),
-        Column("yandex_download_url",String(2083),unique=True),
+        Column("yandex_download_url",Text),
         Column("created",DateTime(),default=datetime.now),
         Column("updated",DateTime(),default=datetime.now,onupdate=datetime.now)
     )
