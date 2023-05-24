@@ -5,11 +5,6 @@ import json
 
 class Yandex:
     _BASE_DOWNLOAD_URL = "https://disk.yandex.com/public/api/download-url"
-    _PROXIES = {
-        "http": "http://smykbabu-rotate:kiy81fvox1h3@p.webshare.io:80",
-        "https": "http://smykbabu-rotate:kiy81fvox1h3@p.webshare.io:80"
-    }
-
     def __init__(self):
         self._session = requests.Session()
         self._session.headers = {
@@ -54,4 +49,4 @@ class Yandex:
         session.headers.update({
             "Referer": url
         })
-        return session.post(self._BASE_DOWNLOAD_URL, data=data, proxies=self._PROXIES).json()["data"]["url"]
+        return session.post(self._BASE_DOWNLOAD_URL, data=data).json()["data"]["url"]
